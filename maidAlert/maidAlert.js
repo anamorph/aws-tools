@@ -1,18 +1,18 @@
 /*
 	id:				maidAlert.js
 	author:		nicolas david - nicolas@nuage.ninja
-	version: 	1.0
+	version: 	1.01
 */
 
 'use strict';
 
-var AWS						= require('aws-sdk');
-var ddb						= new AWS.DynamoDB();
-var sns						= new AWS.SNS({ apiVersion: '2010-03-31' });
+var AWS					= require('aws-sdk');
+var ddb					= new AWS.DynamoDB();
+var sns					= new AWS.SNS({ apiVersion: '2010-03-31' });
 
 // Lambda Env variables
-var ddbTable			= process.env.maidAlertDynamoDBTableName;
-var snsTopicArn		= process.env.maidAlertSNSTopicName;
+var ddbTable		= process.env.maidAlertDynamoDBTableName;
+var snsTopicArn	= process.env.maidAlertSNSTopicName;
 
 exports.handler = (event, context, callback) => {
 		// what kind of click we are talking about ?
@@ -50,7 +50,7 @@ exports.handler = (event, context, callback) => {
 		console.log('### - Writing event data to ', ddbTable, '.');
 		ddb.putItem({
 			'TableName': ddbTable,
-			'Item': ddbItem
+			'Item': ddbItem,
 		}, function(err) {
 			console.log(err, ddbItem);
 		});
