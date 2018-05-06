@@ -6,7 +6,7 @@ This script uses your WAN ip in order to update your CNAME record in Amazon Rout
 
 ### maidAlert/maidAlert.js
 
-This Lambda function hooks onto your AWS Dash Button to alert upon single press & double press in a specific scenario:
+This Lambda function hooks onto your AWS IOT Button to alert upon single press & double press in a specific scenario:
 - a specific task is started  
 - a specific task is ended  
 
